@@ -57,7 +57,7 @@ Tv List -
 Priority Matrix
 Include an image of your Priority Matrix (X is time and Y is priority)
 
-## |Timeframes|
+## Timeframes
 
 
 ## Component	Priority	Estimated Time	Time Invested	Actual Time
@@ -70,13 +70,13 @@ Project Schedule
 ## Day	Deliverable	Status
 
 |  Day | Deliverable | Status
-|-----|-----|
-| Jan 24th	| Project Pitch / Pseudocode /Import React / Build-out Components /Make Sure Api Calls Are Working  |Incomplete
-| Jan 27th	| Build out Functionality / Routes	| Incomplete
-| Jan 28th	| MVP / Start CSS	| Incomplete
-| Jan 29th	| CSS /	Start Post MVP | Incomplete
-| Jan 30th	| Complete Post MVP	| Incomplete
-| Jan 31tst	| Present	| Incomplete
+|---|---|
+|Jan 24th|Project Pitch / Pseudocode /Import React / Build-out Components /Make Sure Api Calls Are Working|Incomplete
+|Jan 27th|Build out Functionality / Routes|Incomplete
+|Jan 28th|MVP / Start CSS|Incomplete
+|Jan 29th|CSS /	Start Post MVP|Incomplete
+|Jan 30th|Complete Post MVP|Incomplete
+|Jan 31st|Present|Incomplete
 
 ## Additional Libraries
 React Router Dom
