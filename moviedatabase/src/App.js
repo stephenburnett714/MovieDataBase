@@ -5,7 +5,7 @@ import { Route, NavLink } from 'react-router-dom'
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import {getTvShowOrMovie, getSearchedInfo} from './services/apihelper'
+import {getPoster, getTvShowOrMovie, getSearchedInfo} from './services/apihelper'
 
 
 export default function App(props) {
@@ -18,8 +18,6 @@ export default function App(props) {
   const [showsOrMovies, setShowsOrMovies] = useState({})
 
 
-
-
   const handleChange = (e) => {
     let value = e.target.value;
     setSearchInput(value)
@@ -28,6 +26,7 @@ export default function App(props) {
 
   const handleClick = async (e) => {
     e.preventDefault();
+
 
     let title = await getSearchedInfo(viewType, searchInput);
     setShowsOrMovies(title)
@@ -52,6 +51,7 @@ export default function App(props) {
       // Object of seached information
       showsOrMovies={showsOrMovies}
       viewType={viewType}
+      getPoster={getPoster}
       />
       <Footer />
     </div>
