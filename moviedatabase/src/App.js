@@ -18,7 +18,7 @@ export default function App(props) {
 
   const [person, setPerson] = useState({
     viewType: "movie",
-    person: []
+    showPerson: []
   })
 
 
@@ -32,12 +32,12 @@ export default function App(props) {
     e.preventDefault();
 
 
-    let titles = await getSearchedInfo(pageType.viewType, searchInput);
+    let newPage = await getSearchedInfo(pageType.viewType, searchInput);
     setPageType(prev => ({
       viewType: prev.viewType,
-      showsOrMovies: titles.results
+      showsOrMovies: newPage.results
     }))
-    console.log(titles.results)
+    console.log(newPage.results)
   }
 
 
@@ -46,6 +46,7 @@ export default function App(props) {
       <Header
         setPageType={setPageType}
         pageType={pageType}
+        setPerson={setPerson}
       />
       <Main
         // Search Functions
@@ -54,6 +55,7 @@ export default function App(props) {
         handleChange={handleChange}
         getPoster={getPoster}
         pageType={pageType}
+        person={person}
         getTvMoviePerson={getTvMoviePerson}
       />
       <Footer />

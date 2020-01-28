@@ -22,9 +22,9 @@ export default function Header(props) {
         Search TV Shows
       </NavLink>
 
-      <NavLink exact activeClassName="active" to="/person" onClick={() => props.setPerson({
+      <NavLink exact activeClassName="active" to="/person" onClick={() => props.setPageType({
         viewType: "person",
-        people: []
+        showsAndMovies: []
       })}>
         Search Actor/Actress
       </NavLink>

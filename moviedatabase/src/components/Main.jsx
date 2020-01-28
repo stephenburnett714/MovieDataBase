@@ -2,6 +2,8 @@ import React from 'react'
 import Search from './maincomponents/Seach'
 import Movies from './maincomponents/Movies'
 import TvShows from './maincomponents/TvShows'
+import People from './maincomponents/People'
+import PeopleDetails from './maincomponents/PeopleDetails'
 import MoviesDetails from './maincomponents/MoviesDetails'
 import TvShowsDetails from './maincomponents/TvShowsDetails'
 import { Route } from 'react-router-dom'
@@ -31,6 +33,13 @@ export default function Main(props) {
                 />
             </Route>
 
+            <Route exact path="/person">
+                <People
+                    getPoster={props.getPoster}
+                    pageType={props.pageType}
+                />
+            </Route>
+
             <Route exact path ="/movie/details/:id" component={match => 
                         <MoviesDetails 
                         match={match} 
@@ -41,6 +50,14 @@ export default function Main(props) {
 
             <Route exact path ="/tv/details/:id" component={match => 
                         <TvShowsDetails 
+                        match={match} 
+                        getTvMoviePerson={props.getTvMoviePerson}
+                        pageType={props.pageType}
+                        />}>
+            </Route>
+
+            <Route exact path ="/person/details/:id" component={match => 
+                        <PeopleDetails 
                         match={match} 
                         getTvMoviePerson={props.getTvMoviePerson}
                         pageType={props.pageType}
