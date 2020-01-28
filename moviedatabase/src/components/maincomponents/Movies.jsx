@@ -1,33 +1,29 @@
 import React from 'react'
-import {Link} from 'react-router-dom' 
-
+import { Link } from 'react-router-dom'
 
 
 export default function Movies(props) {
 
-const posterSize = 'w200'
-   
-    if (props.viewType == "movie"  && Object.entries(props.showsOrMovies).length > 0) {
-    return(
+    const posterSize = 'w200'
+
+       if (props.pageType.showsOrMovies) {
+    return (
         <div >
-            {props.showsOrMovies.results.map((movie, index) => (
+            {props.pageType.showsOrMovies.map((movie, index) => (
                 <div>
-                <h3>{movie.title || movie.original_name} ({movie.release_date})</h3>
-                <img src= {`https://image.tmdb.org/t/p/${posterSize}${movie.poster_path}`} alt=""/>
+                    <Link to = {`/movie/details/${movie.id}`}>
+                    <h3>{movie.title || movie.original_name} ({movie.release_date})</h3>
+                    <img src={`https://image.tmdb.org/t/p/${posterSize}${movie.poster_path}`} alt="" />
+                    </Link>
                 </div>
             ))}
         </div>
-    )} else if (props.viewType == "movie") {
-        return (
-            <div>
-                <h1>Search a Movie</h1>
-            </div>
-        )
-    }  else {
-        return(
-            <div>
-                
-            </div>
-        )
-    }
+    )
+    } else if (props.pageType.showsOrMovies === undefined || props.pageType.showsOrMovies === 0){
+            return (
+                <div>
+                    <h1>Search A Movie</h1>
+                </div>
+            )
+        }
 }

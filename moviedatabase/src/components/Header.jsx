@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 export default function Header(props) {
@@ -7,20 +7,33 @@ export default function Header(props) {
         <div>
       <header className="App-header">
     <nav>
-      <NavLink exact activeClassName="active" to="/" onClick={() => props.setViewType(
-          'movie'
-      )}>
-        Movies
+
+      <NavLink exact activeClassName="active" to="/movie" onClick={() => props.setPageType({
+        viewType: "movie",
+        showsAndMovies: []
+      })}>
+        Search Movies
       </NavLink>
-      <NavLink exact activeClassName="active" to="/tv" onClick={() => props.setViewType(
-          'tv'
-      )}>
-        Tv Shows
-      </NavLink>         
+
+      <NavLink exact activeClassName="active" to="/tv" onClick={() => props.setPageType({
+        viewType: "tv",
+        showsAndMovies: []
+      })}>
+        Search TV Shows
+      </NavLink>
+
+      <NavLink exact activeClassName="active" to="/person" onClick={() => props.setPerson({
+        viewType: "person",
+        people: []
+      })}>
+        Search Actor/Actress
+      </NavLink>
+
+
       <h1 className="Title">Movie Finder</h1>
       </nav>
       </header>
-      
+
     
         </div>
     )

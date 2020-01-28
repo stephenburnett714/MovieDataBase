@@ -1,21 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import axios from 'axios'
-import { Route, NavLink } from 'react-router-dom'
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import {getPoster, getTvShowOrMovie, getSearchedInfo} from './services/apihelper'
+import { getPoster, getTvMoviePerson, getSearchedInfo } from './services/apihelper'
 
 
 export default function App(props) {
 
-// Is it a movie or a Tv Show
-  const [viewType, setViewType] = useState("movie")
-// Whats in the searchbar
   const [searchInput, setSearchInput] = useState("")
-// The movie/s or show/s that are returned
-  const [showsOrMovies, setShowsOrMovies] = useState({})
+
+
+  const [pageType, setPageType] = useState({
+    viewType: "movie",
+    showsOrMovies: []
+  })
+
+  const [person, setPerson] = useState({
+    viewType: "movie",
+    person: []
+  })
 
 
   const handleChange = (e) => {
@@ -28,30 +32,29 @@ export default function App(props) {
     e.preventDefault();
 
 
-    let title = await getSearchedInfo(viewType, searchInput);
-    setShowsOrMovies(title)
-    console.log(title)
-    }
-    
-  
- 
+    let titles = await getSearchedInfo(pageType.viewType, searchInput);
+    setPageType(prev => ({
+      viewType: prev.viewType,
+      showsOrMovies: titles.results
+    }))
+    console.log(titles.results)
+  }
+
 
   return (
     <div className="App">
       <Header
-      // What page are we in
-      viewType={viewType}
-      setViewType={setViewType}
+        setPageType={setPageType}
+        pageType={pageType}
       />
       <Main
-      // Search Functions
-      searchInput={searchInput} 
-      handleClick={handleClick} 
-      handleChange={handleChange}
-      // Object of seached information
-      showsOrMovies={showsOrMovies}
-      viewType={viewType}
-      getPoster={getPoster}
+        // Search Functions
+        searchInput={searchInput}
+        handleClick={handleClick}
+        handleChange={handleChange}
+        getPoster={getPoster}
+        pageType={pageType}
+        getTvMoviePerson={getTvMoviePerson}
       />
       <Footer />
     </div>
