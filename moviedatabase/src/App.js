@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import { getPoster, getTvMoviePerson, getSearchedInfo } from './services/apihelper'
+import {getPersonAndCredits, getMovieCredits, getPoster, getTvMoviePerson, getSearchedInfo } from './services/apihelper'
 
 
 export default function App(props) {
@@ -57,6 +57,8 @@ export default function App(props) {
         pageType={pageType}
         person={person}
         getTvMoviePerson={getTvMoviePerson}
+        getMovieCredits={getMovieCredits}
+        getPersonAndCredits={getPersonAndCredits}
       />
       <Footer />
     </div>

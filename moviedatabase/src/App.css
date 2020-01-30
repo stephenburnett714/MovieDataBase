@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgb(95, 92, 92);
   min-height: 15vh;
   display: flex;
   flex-direction: column;
@@ -22,17 +22,77 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  border-bottom: solid black;
+
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-link {
+  margin: 10px;
+  color: white;
+  border: solid;
+  border-color: orange;
+  font-size: 18px;
+  text-decoration: none;
+  background-color: orange;
+  border-radius: 5px;
+}
+
+.title {
+  color: orange
+}
+
+.movies-and-shows {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.single-movie:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  padding: 0px
+}
+
+.single-show:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.featured-picture {
+  border: rgb(95, 92, 92), solid;
+}
+
+.person-info {
+  display: flex;
+}
+
+.biography {
+  margin: 30px;
+}
+
+
+.characters-datails-image, .movie-details-picture{
+  margin: 20px
+}
+
+
+.movie-details {
+  display: flex;
+}
+
+
+.overview-info {
+  font-size: 24px;
+  font-weight: lighter;
+  margin-top:20px;
+  margin-bottom:20px;
+
+}
+
+.bold-heading-genre {
+  font-size: 24px;
+  font-weight: bold;
+  
 }

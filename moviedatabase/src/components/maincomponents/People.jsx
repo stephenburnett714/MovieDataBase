@@ -10,10 +10,10 @@ export default function People(props) {
     return (
         <div >
             {props.pageType.showsOrMovies.map((person, index) => (
-                <div>
+                <div key={index}>
                     <Link to = {`/person/details/${person.id}`}>
                     <h3>{person.name}</h3>
-                    <img src={`https://image.tmdb.org/t/p/${posterSize}${person.profile_path}`} alt="" />
+                    <img className="featured-picture" src={`https://image.tmdb.org/t/p/${posterSize}${person.profile_path}`} alt="" />
                     </Link>
                 </div>
             ))}

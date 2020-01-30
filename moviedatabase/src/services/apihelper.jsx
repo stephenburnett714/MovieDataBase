@@ -6,8 +6,7 @@ const imageBase = 'https://image.tmdb.org/t/p/';
 
 
 export const getTvMoviePerson = async (viewType, id) => {
-  console.log(viewType, id)
-    const res = await axios.get(`${base}${viewType}/${id}?api_key=${token}&language=en-US`)
+    const res = await axios.get(`${base}${viewType}/${id}?api_key=${token}&language=en-US&append_to_response=credits`)
     console.log(res)
     return res.data
   }
@@ -22,5 +21,22 @@ export const getSearchedInfo = async (viewType, search) => {
     return res.data
   }
 
+  export const getMovieCredits = async (id) => {
+    const res = await axios.get(`${base}person/${id}/movie_credits?api_key=${token}&language=en-US`)
+    return res.data
+  }
+
+export const getPersonAndCredits = async (id) => {
+  console.log(id)
+  const res = await axios.get(`${base}person/${id}/?api_key=${token}&append_to_response=movie_credits,tv_credits`)
+  console.log(res)
+  return res.data
+}
 
 
+export const getMovieAndCredits = async (id) => {
+  console.log(id)
+  const res = await axios.get(`${base}movie/${id}?api_key=${token}&language=en-US&append_to_response=credits`)
+  console.log(res)
+  return res.data
+}
