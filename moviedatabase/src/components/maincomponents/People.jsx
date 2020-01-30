@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Search from './../maincomponents/Seach'
 
 
 export default function People(props) {
@@ -13,7 +14,7 @@ export default function People(props) {
                 <div key={index}>
                     <Link to = {`/person/details/${person.id}`}>
                     <h3>{person.name}</h3>
-                    <img className="featured-picture" src={`https://image.tmdb.org/t/p/${posterSize}${person.profile_path}`} alt="" />
+                    {person.profile_path ? <img className="featured-picture" src={`https://image.tmdb.org/t/p/${posterSize}${person.profile_path}`} alt="" /> : <img src="/ni2x3.png" alt=""/>}
                     </Link>
                 </div>
             ))}
@@ -23,6 +24,11 @@ export default function People(props) {
             return (
                 <div>
                     <h1>Search A Person</h1>
+                        <Search 
+                        searchInput={props.searchInput}
+                        handleClick={props.handleClick}
+                        handleChange={props.handleChange}
+                        />
                 </div>
             )
         }

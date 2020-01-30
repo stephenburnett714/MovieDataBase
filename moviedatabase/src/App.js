@@ -17,7 +17,7 @@ export default function App(props) {
   })
 
   const [person, setPerson] = useState({
-    viewType: "movie",
+    viewType: "tv",
     showPerson: []
   })
 
@@ -59,6 +59,7 @@ export default function App(props) {
         getTvMoviePerson={getTvMoviePerson}
         getMovieCredits={getMovieCredits}
         getPersonAndCredits={getPersonAndCredits}
+        setPageType={setPageType}
       />
       <Footer />
     </div>

@@ -13,16 +13,19 @@ export default function Main(props) {
 
     return (
         <div>
-            <Search
+            {/* <Search
                 searchInput={props.searchInput}
                 handleClick={props.handleClick}
                 handleChange={props.handleChange}
-            />
+            /> */}
             <Route exact path="/movie">
                 <Movies
                     getPoster={props.getPoster}
                     pageType={props.pageType}
                     getTvMoviePerson={props.getTvMoviePerson}
+                    searchInput={props.searchInput}
+                    handleClick={props.handleClick}
+                    handleChange={props.handleChange}
                 />
             </Route>
 
@@ -30,6 +33,9 @@ export default function Main(props) {
                 <TvShows
                     getPoster={props.getPoster}
                     pageType={props.pageType}
+                    searchInput={props.searchInput}
+                    handleClick={props.handleClick}
+                    handleChange={props.handleChange}
                 />
             </Route>
 
@@ -37,6 +43,9 @@ export default function Main(props) {
                 <People
                     getPoster={props.getPoster}
                     pageType={props.pageType}
+                    searchInput={props.searchInput}
+                    handleClick={props.handleClick}
+                    handleChange={props.handleChange}
                 />
             </Route>
 
@@ -61,6 +70,7 @@ export default function Main(props) {
                         match={match} 
                         getTvMoviePerson={props.getTvMoviePerson}
                         pageType={props.pageType}
+                        setPageType={props.setPageType}
                         />}>
             </Route>
 

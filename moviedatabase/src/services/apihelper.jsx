@@ -40,3 +40,12 @@ export const getMovieAndCredits = async (id) => {
   console.log(res)
   return res.data
 }
+
+
+export const getShowAndCredits = async (id) => {
+  console.log(id)
+  const res = await axios.get(`${base}tv/${id}?api_key=${token}&language=en-US&append_to_response=credits`)
+  console.log(res)
+  return res.data
+}
+

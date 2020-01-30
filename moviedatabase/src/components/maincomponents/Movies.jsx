@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Search from './../maincomponents/Seach'
 
 
 export default function Movies(props) {
@@ -13,7 +14,7 @@ export default function Movies(props) {
                 <div>
                     <Link to = {`/movie/details/${movie.id}`}>
                     <h3>{movie.title || movie.original_name} ({movie.release_date})</h3>
-                    <img src={`https://image.tmdb.org/t/p/${posterSize}${movie.poster_path}`} alt="" />
+                    {movie.poster_path ? <img src={`https://image.tmdb.org/t/p/${posterSize}${movie.poster_path}`} alt="" /> : <img src="/ni4x6.png" alt=""/>}
                     </Link>
                 </div>
             ))}
@@ -23,6 +24,12 @@ export default function Movies(props) {
             return (
                 <div>
                     <h1>Search A Movie</h1>
+                    <Search 
+                        searchInput={props.searchInput}
+                        handleClick={props.handleClick}
+                        handleChange={props.handleChange}
+                    />
+                    
                 </div>
             )
         }
