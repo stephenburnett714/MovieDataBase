@@ -94,6 +94,7 @@
   margin: 10px;
 }
 
+
 @media only screen and (max-width: 800px) {
   .header-link {
     display: flex;
@@ -109,7 +110,18 @@
   }
 
   .details-picture {
-    width: 100vw;
+    margin: 0px;
+    width: 300px;
+    height:450px;
+    margin: 0 auto;
+  }
+
+  .top-picture {
+    width: 100%;
+  }
+
+  .text {
+    font-size: 15px;
   }
 
 

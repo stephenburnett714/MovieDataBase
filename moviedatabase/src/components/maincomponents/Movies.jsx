@@ -14,7 +14,7 @@ export default function Movies(props) {
                 <div>
                     <Link to = {`/movie/details/${movie.id}`}>
                     <h3>{movie.title || movie.original_name} ({movie.release_date})</h3>
-                    {movie.poster_path ? <img src={`https://image.tmdb.org/t/p/${posterSize}${movie.poster_path}`} alt="" /> : <img src="/ni4x6.png" alt=""/>}
+                    {movie.poster_path ? <img src={`https://image.tmdb.org/t/p/${posterSize}${movie.poster_path}`} alt="" /> : <img src="/ni2x3.png" alt=""/>}
                     </Link>
                 </div>
             ))}

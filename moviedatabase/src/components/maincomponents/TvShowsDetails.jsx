@@ -15,7 +15,6 @@ export default function TvShowsDetails(props) {
             try {
                 const response = await getShowAndCredits(props.match.match.params.id)
                 setSelectedTvShow(response);
-                {console.log(selectedTvShow)}
             } catch (err) {
                 console.log(err);
             }
@@ -33,9 +32,9 @@ export default function TvShowsDetails(props) {
             return (
                 <div>
                     <h1>{name}</h1>
-                    <div className="show-details">
+                    <div className="movie-details">
                     <div className="details-picture">
-                    {poster_path ? <img src={`https://image.tmdb.org/t/p/${moviePosterSize}${poster_path}`} alt="" /> : <img src="/ni4x6.png" alt=""/>}
+                    {poster_path ? <img className="top-picture" src={`https://image.tmdb.org/t/p/${moviePosterSize}${poster_path}`} alt="" /> : <img className="top-picture" src="/ni4x6.png" alt=""/>}
                     </div>
                     <div>
                     <h5>Air Date: {moment(first_air_date).format('MMMM DD, YYYY')}</h5>
@@ -64,8 +63,6 @@ export default function TvShowsDetails(props) {
             )
         }
     }
-
-    console.log(selectedTvShow)
 
     return (
         <div>

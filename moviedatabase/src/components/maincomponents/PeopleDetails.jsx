@@ -17,7 +17,6 @@ const posterSize = "w200";
             try {
               const response = await getPersonAndCredits(props.match.match.params.id)
               setPersonAndMovies(response)
-              {console.log(personAndMovies)}
             } catch (err) {
               console.log(err);
             }
@@ -32,9 +31,9 @@ const posterSize = "w200";
         
         <div>
             <h1>{name}</h1>
-            <div className="person-info">
+            <div className="movie-details">
             <div className="details-picture">
-            {profile_path ? <img src={`https://image.tmdb.org/t/p/${characterSize}${profile_path}`} alt="" /> : <img src="/ni4x6.png" alt=""/>}
+            {profile_path ? <img className="top-picture" src={`https://image.tmdb.org/t/p/${characterSize}${profile_path}`} alt="" /> : <img className="top-picture" src="/ni4x6.png" alt=""/>}
             </div>
             <div>
             <h3>Birthdate: {moment(birthday).format('MMMM DD, YYYY')}</h3>

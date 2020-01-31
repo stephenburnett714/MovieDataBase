@@ -37,7 +37,6 @@ export default function App(props) {
       viewType: prev.viewType,
       showsOrMovies: newPage.results
     }))
-    console.log(newPage.results)
   }
 
 

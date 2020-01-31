@@ -22,7 +22,6 @@ export default function MoviesDetails(props) {
             try {
                 const response = await getMovieAndCredits(props.match.match.params.id)
                 setSelectedMovie(response);
-                { console.log(selectedMovie) }
             } catch (err) {
                 console.log(err);
             }
@@ -43,8 +42,9 @@ export default function MoviesDetails(props) {
                     <h5>{tagline}</h5>
                     <div className="movie-details">
                         <div className="details-picture">
-                            {poster_path ? <img src={`https://image.tmdb.org/t/p/${moviePosterSize}${poster_path}`} alt="" /> : <img src="/ni4x6.png" alt="" />}
+                            {poster_path ? <img className="top-picture" src={`https://image.tmdb.org/t/p/${moviePosterSize}${poster_path}`} alt="" /> : <img className="top-picture" src="/ni4x6.png" alt="" />}
                         </div>
+                        <div className = "text">
                         <div className="movie-details-info">
                             <h5>Realease Date: {moment(release_date).format('MMMM DD, YYYY')}</h5>
 
@@ -56,6 +56,7 @@ export default function MoviesDetails(props) {
 
                             <h5>Budget: ${budget ? thousands_separators(budget) : "N/A"}</h5>
                         </div>
+                    </div>
                     </div>
                     <h2>Cast:</h2>
                     {credits.cast.map((person, index) => (
@@ -76,7 +77,6 @@ export default function MoviesDetails(props) {
     }
 
 
-    console.log(selectedMovie)
     return (
         <div>
             <h1>{renderData()}</h1>
