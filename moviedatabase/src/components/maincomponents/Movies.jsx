@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { Link } from 'react-router-dom'
 import Search from './../maincomponents/Seach'
 
@@ -13,7 +14,7 @@ export default function Movies(props) {
             {props.pageType.showsOrMovies.map((movie, index) => (
                 <div>
                     <Link to = {`/movie/details/${movie.id}`}>
-                    <h3>{movie.title || movie.original_name} ({movie.release_date})</h3>
+                    <h3>{movie.title || movie.original_name} {movie.release_date ? moment(movie.release_date).format('(YYYY)') : ""}</h3>
                     {movie.poster_path ? <img src={`https://image.tmdb.org/t/p/${posterSize}${movie.poster_path}`} alt="" /> : <img src="/ni2x3.png" alt=""/>}
                     </Link>
                 </div>

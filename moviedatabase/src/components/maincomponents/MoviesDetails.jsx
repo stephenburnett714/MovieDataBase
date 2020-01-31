@@ -54,7 +54,7 @@ export default function MoviesDetails(props) {
                                 <span className="overview-info">{genre.name} </span>
                             ))}
 
-                            <h5>Budget: ${budget ? thousands_separators(budget) : "N/A"}</h5>
+                            <h5>Budget: {budget ? `$${thousands_separators(budget)}` : "No Data"}</h5>
                         </div>
                     </div>
                     </div>

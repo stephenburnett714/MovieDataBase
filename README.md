@@ -1,7 +1,3 @@
-# Movie/TV Info
-A React based app that lets you search movies to find out more information about that movie.
-
-# Project Overview
 
 ## Project Name
 
@@ -9,7 +5,7 @@ Movie/TV Info
 
 ## Project Decription
 
-Create an app that will give the user the ability to search through movies and find more information about the movie. The app will have a search bar that can be seen on any page of the app. 
+Create an app that will give the user the ability to search through movies and tv shows. The app will give you more information about the movie or tv show wonce it is searched. The app will have a search bar that can be seen on any page of the app. 
 
 ## API Snippet and Sample Data
 
@@ -67,15 +63,15 @@ https://res.cloudinary.com/dkwosricc/image/upload/v1579881097/Screen_Shot_2020-0
 ## Component	Priority	Estimated Time	Time Invested	Actual Time
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Psudocoding | H | 2.5hrs|  |  |
-| Designing | M | 3hrs|  |  |
-| CSS | H | 10hrs|  |  |
-| Axios Calls | H | 1hrs|  |  |
-| Creating Routes | H | 2hrs|  |  |
-| Appending Items to the Screen | H | 6hrs|  |  |
-| Animations | H | 2hrs|  |  |
-| Testing & Debugging | H | 6hrs|  |  |
-| Total | H | 32.5hrs|  |  |
+| Psudocoding | H | 2.5hrs| 2 | 2 |
+| Designing | M | 3hrs| 2 | 2 |
+| CSS | H | 10hrs| 10 | 10 |
+| Axios Calls | H | 1hrs| 2 | 2 |
+| Creating Routes | H | 2hrs| 3 | 3 |
+| Appending Items to the Screen | H | 6hrs| 3 | 3 |
+| Animations | H | 2hrs| 0 | 0 |
+| Testing & Debugging | H | 6hrs| 15 | 15 |
+| Total | H | 32.5hrs| 37 | 37 |
 Project Schedule
 
 
@@ -83,23 +79,82 @@ Project Schedule
 
 |  Day | Deliverable | Status
 |---|---|---|
-|Jan 24th|Project Pitch / Pseudocode /Import React / Build-out Components /Make Sure Api Calls Are Working|Incomplete
-|Jan 27th|Build out Functionality / Routes|Incomplete
-|Jan 28th|MVP / Start CSS|Incomplete
-|Jan 29th|CSS /	Start Post MVP|Incomplete
-|Jan 30th|Complete Post MVP|Incomplete
-|Jan 31st|Present|Incomplete
+|Jan 24th|Project Pitch / Pseudocode /Import React / Build-out Components /Make Sure Api Calls Are Working|Complete
+|Jan 27th|Build out Functionality / Routes|Complete
+|Jan 28th|MVP / Start CSS|Complete
+|Jan 29th|CSS /	Start Post MVP|Complete
+|Jan 30th|Complete Post MVP|Complete
+|Jan 31st|Present|Complete
 
 ## Additional Libraries
 - React Router Dom
 - Axios
-- .env.local
+- moment
 
 ## Issues and Resolutions
 - Rendering movies to a list if there is more than one movie with the same title.
+- Encountered a bug where my return statement didnt return anyhting. fixed the bug by re-writing the commponenet.
+- Encountered a problem where my 
 
 ## Code Snippet
-- N/a for now
+
+if(personAndMovies && personAndMovies) {
+        const {deathday, name, profile_path, birthday, biography} = personAndMovies
+    return (
+        
+        <div>
+            <h1>{name}</h1>
+            <div className="movie-details">
+            <div className="details-picture">
+            {profile_path ? <img className="top-picture" src={`https://image.tmdb.org/t/p/${characterSize}${profile_path}`} alt="" /> : <img className="top-picture" src="/ni4x6.png" alt=""/>}
+            </div>
+            <div>
+            <h3>Birthdate: {moment(birthday).format('MMMM DD, YYYY')}</h3>
+            {deathday ?  <span>DeathDay: { moment(deathday).format('MMMM DD, YYYY')}</span> : <p></p>}
+            <h3>Biography:</h3>
+            <p className="biography">{biography}</p>
+            </div>
+            </div>
+
+            <div className="movies-and-shows">
+                <div className="shown-movies">
+                <h1>Movies: </h1>
+                {personAndMovies.movie_credits.cast.map((movie, index ) => (
+                <div key={index}>
+                    <Link className="single-movie" key={index} to = {`/movie/details/${movie.id}`}>
+                {movie.poster_path ? <img src={`https://image.tmdb.org/t/p/${posterSize}${movie.poster_path}`} alt="" /> : <img src="/ni2x3.png" />}
+                    <h3>{movie.title}</h3>
+                </Link>
+                </div>
+           ))}
+
+                </div>
+                <div className="shown-shows">
+                <h1>Shows:</h1>
+                {personAndMovies.tv_credits.cast.map((show, index ) => (
+                <div key={index}>
+                    <Link className="single-show" key={index} to = {`/tv/details/${show.id}`}>
+                {show.poster_path ? <img src={`https://image.tmdb.org/t/p/${posterSize}${show.poster_path}`} alt="" /> : <img src="/ni2x3.png" />}
+                    <h3>{show.name}</h3>
+                </Link>
+                </div>
+           ))}
+
+           </div>
+           </div>
+        </div>
+    )
+        } else {
+            return (
+                <h1>Loading...</h1>
+            )
+        }
+}
 
 ## Change Log
-- N/a for now
+- Changed the component stucture to make the seach bar only be seen from the seach screens
+- Added the component for the People and People details
+- Connected the people to show movies and tv shows with links
+- Connected movies and tv shows to have links for casts
+
+

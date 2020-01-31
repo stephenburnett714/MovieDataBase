@@ -42,14 +42,11 @@
 }
 
 
-.single-movie:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+.single-movie:hover, .single-show:hover {
+  box-shadow: 15px 15px 15px rgba(0,0,0,0.3);
   padding: 0px
 }
 
-.single-show:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
 
 .featured-picture {
   border: rgb(95, 92, 92), solid;

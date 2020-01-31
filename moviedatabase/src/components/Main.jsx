@@ -1,5 +1,4 @@
 import React from 'react'
-import Search from './maincomponents/Seach'
 import Movies from './maincomponents/Movies'
 import TvShows from './maincomponents/TvShows'
 import People from './maincomponents/People'
@@ -13,11 +12,6 @@ export default function Main(props) {
 
     return (
         <div>
-            {/* <Search
-                searchInput={props.searchInput}
-                handleClick={props.handleClick}
-                handleChange={props.handleChange}
-            /> */}
             <Route exact path="/movie">
                 <Movies
                     getPoster={props.getPoster}
