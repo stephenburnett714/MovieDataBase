@@ -9,11 +9,11 @@ export default function People(props) {
 
        if (props.pageType.showsOrMovies) {
     return (
-        <div >
+        <div className="flexbox">
             {props.pageType.showsOrMovies.map((person, index) => (
-                <div key={index}>
+                <div  className="flex" key={index}>
                     <Link to = {`/person/details/${person.id}`}>
-                    <h3>{person.name}</h3>
+                    <h5>{person.name}</h5>
                     {person.profile_path ? <img className="featured-picture" src={`https://image.tmdb.org/t/p/${posterSize}${person.profile_path}`} alt="" /> : <img src="/ni2x3.png" alt=""/>}
                     </Link>
                 </div>

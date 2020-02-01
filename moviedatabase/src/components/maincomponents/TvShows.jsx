@@ -11,12 +11,11 @@ export default function TvShows(props) {
 
 if (props.pageType.showsOrMovies) {
     return (
-        <div>
-
+        <div className="flexbox">
             {props.pageType.showsOrMovies.map((tv, index) => (
-                <div>
+                <div className="flex">
                     <Link to = {`/tv/details/${tv.id}`}>
-            <h3>{tv.title || tv.original_name} {tv.first_air_date ? moment(tv.first_air_date).format('(YYYY)') : ""} </h3> 
+            <h5>{tv.title || tv.original_name} {tv.first_air_date ? moment(tv.first_air_date).format('(YYYY)') : ""} </h5> 
                     {tv.poster_path ? <img src={`https://image.tmdb.org/t/p/${posterSize}${tv.poster_path}`} alt="" /> : <img src="/ni2x3.png" alt=""/>}
                     </Link>
                 </div>
