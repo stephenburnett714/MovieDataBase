@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Search from './maincomponents/Seach'
 
 
 export default function Header(props) {
@@ -33,6 +34,7 @@ export default function Header(props) {
       <h1 className="title">The Movie Database</h1>
       </nav>
       </header>
+      <Search />
 
     
         </div>
