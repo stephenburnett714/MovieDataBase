@@ -10,6 +10,9 @@ export default function App(props) {
 
   const [searchInput, setSearchInput] = useState("")
 
+  const [viewType, setViewType] = useState("movie")
+  const [seacrchedResults, setseacrchedResults] = useState([])
+
 
   const [pageType, setPageType] = useState({
     viewType: "movie",
@@ -43,6 +46,8 @@ export default function App(props) {
   return (
     <div className="App">
       <Header
+        viewType={viewType}
+        setViewType={setViewType}
         setPageType={setPageType}
         pageType={pageType}
         setPerson={setPerson}

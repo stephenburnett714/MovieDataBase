@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom'
 import Search from './maincomponents/Seach'
 
 
+
 export default function Header(props) {
     return(
         <div className="headers-div">
       <header className="App-header">
     <nav>
-
+      {/* Nav Links will be modified Buttons not needed adding searchmad Dropdown */}
       <NavLink className="header-link" exact activeClassName="active" to="/movie" onClick={() => props.setPageType({
         viewType: "movie",
         showsAndMovies: []
@@ -34,7 +35,11 @@ export default function Header(props) {
       <h1 className="title">The Movie Database</h1>
       </nav>
       </header>
-      <Search />
+
+      <Search
+        viewType={props.viewType}
+        setViewType={props.setViewType} 
+      />
 
     
         </div>
