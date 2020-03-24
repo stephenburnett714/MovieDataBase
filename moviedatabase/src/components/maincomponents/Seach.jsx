@@ -1,22 +1,22 @@
 import React from 'react'
-import {Dropdown, ButtonGroup, Button} from 'react-bootstrap'
+import {Dropdown, ButtonGroup, DropdownButton} from 'react-bootstrap'
 
 
 export default function Search(props) {
     return(
         <div >
         <form action="">
-        <Dropdown as={ButtonGroup}>
-  <Button variant="success">{props.viewType}</Button>
-
-  <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-
-  <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
+       
+  
+        <span className="custom-select">
+  <select>
+    <option value="0">Select car:</option>
+    <option value="1">Movie</option>
+    <option value="2">TvShow</option>
+    <option value="3">Person</option>
+  </select>
+</span>
+      
         <input type="text" placeholder='Search...' onChange={props.handleChange} value={props.searchInput}
         />
         <button onClick={props.handleClick} >Search</button>
