@@ -11,6 +11,7 @@ export default function App(props) {
   const [searchInput, setSearchInput] = useState("")
 
   const [viewType, setViewType] = useState("movie")
+  console.log(viewType)
   const [seacrchedResults, setseacrchedResults] = useState([])
 
 

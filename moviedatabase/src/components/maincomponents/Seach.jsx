@@ -1,19 +1,20 @@
 import React from 'react'
-import {Dropdown, ButtonGroup, DropdownButton} from 'react-bootstrap'
+
 
 
 export default function Search(props) {
+  {console.log(props.viewType)}
     return(
         <div >
+          {console.log(props.viewType)}
         <form action="">
        
   
         <span className="custom-select">
-  <select>
-    <option value="0">Select car:</option>
-    <option value="1">Movie</option>
-    <option value="2">TvShow</option>
-    <option value="3">Person</option>
+  <select onChange={e => props.setViewType(e.currentTarget.value)}>
+    <option value={"movie"}>Movie</option>
+    <option value={"tv"}>Tv Show</option>
+    <option value={"person"}>Person</option>
   </select>
 </span>
       
