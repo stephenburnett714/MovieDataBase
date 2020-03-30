@@ -11,8 +11,8 @@ export default function App(props) {
   const [searchInput, setSearchInput] = useState("")
 
   const [viewType, setViewType] = useState("movie")
-  console.log(viewType)
-  const [seacrchedResults, setseacrchedResults] = useState([])
+  console.log(searchInput)
+  const [seacrchedResults, setSeacrchedResults] = useState([])
 
 
   const [pageType, setPageType] = useState({
@@ -34,13 +34,9 @@ export default function App(props) {
 
   const handleClick = async (e) => {
     e.preventDefault();
-
-
-    let newPage = await getSearchedInfo(pageType.viewType, searchInput);
-    setPageType(prev => ({
-      viewType: prev.viewType,
-      showsOrMovies: newPage.results
-    }))
+    let newPage = await getSearchedInfo(viewType, searchInput);
+    setSeacrchedResults([])
+    setSeacrchedResults(newPage.results)
   }
 
 
@@ -52,6 +48,9 @@ export default function App(props) {
         setPageType={setPageType}
         pageType={pageType}
         setPerson={setPerson}
+        searchInput={searchInput}
+        handleClick={handleClick}
+        handleChange={handleChange}
       />
       <Main
         // Search Functions
@@ -65,6 +64,7 @@ export default function App(props) {
         getMovieCredits={getMovieCredits}
         getPersonAndCredits={getPersonAndCredits}
         setPageType={setPageType}
+        seacrchedResults={seacrchedResults}
       />
       <Footer />
     </div>

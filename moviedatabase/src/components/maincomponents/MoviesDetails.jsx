@@ -8,6 +8,7 @@ import moment from 'moment'
 export default function MoviesDetails(props) {
 
     const [selectedMovie, setSelectedMovie] = useState(null)
+    const [movieEffect, setMovieEffect] = useState(true)
     const moviePosterSize = "w400"
 
     // Found on w3resource
@@ -22,12 +23,13 @@ export default function MoviesDetails(props) {
             try {
                 const response = await getMovieAndCredits(props.match.match.params.id)
                 setSelectedMovie(response);
+                setMovieEffect(!movieEffect)
             } catch (err) {
                 console.log(err);
             }
         }
         fetchData()
-    }, [])
+    }, [movieEffect])
 
 
 

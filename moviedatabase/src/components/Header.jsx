@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { NavLink } from 'react-router-dom'
 import Search from './maincomponents/Seach'
 
@@ -24,7 +25,7 @@ export default function Header(props) {
         Search TV Shows
       </NavLink>
 
-      <NavLink className="header-link" exact activeClassName="active" to="/person" onClick={() => props.setPageType({
+      <NavLink className="header-link" exact activeClassName="active" to={`/${props.viewType}`} onClick={() => props.setPageType({
         viewType: "person",
         showsAndMovies: []
       })}>
@@ -38,7 +39,10 @@ export default function Header(props) {
 
       <Search
         viewType={props.viewType}
-        setViewType={props.setViewType} 
+        setViewType={props.setViewType}
+        searchInput={props.searchInput}
+        handleClick={props.handleClick}
+        handleChange={props.handleChange}
       />
 
     

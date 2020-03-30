@@ -7,10 +7,10 @@ export default function People(props) {
 
     const posterSize = 'w200'
 
-       if (props.pageType.showsOrMovies) {
+       if (props.seacrchedResults) {
     return (
         <div className="flexbox">
-            {props.pageType.showsOrMovies.map((person, index) => (
+            {props.seacrchedResults.map((person, index) => (
                 <div  className="flex" key={index}>
                     <Link to = {`/person/details/${person.id}`}>
                     <h5>{person.name}</h5>
@@ -20,7 +20,7 @@ export default function People(props) {
             ))}
         </div>
     )
-    } else if (props.pageType.showsOrMovies === undefined || props.pageType.showsOrMovies === 0){
+    } else if (props.seacrchedResults === undefined || props.seacrchedResults === 0){
             return (
                 <div>
                     <h1>Search A Person</h1>

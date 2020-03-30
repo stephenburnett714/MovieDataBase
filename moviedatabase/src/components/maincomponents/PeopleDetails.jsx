@@ -9,6 +9,7 @@ import moment from 'moment'
 export default function PeopleDetails(props) {
 
 const [personAndMovies, setPersonAndMovies] = useState(null)
+const [personEffect, setPersonEffect] = useState(true)
 const characterSize = "w400"
 const posterSize = "w200";
 
@@ -17,12 +18,13 @@ const posterSize = "w200";
             try {
               const response = await getPersonAndCredits(props.match.match.params.id)
               setPersonAndMovies(response)
+              setPersonEffect(!personEffect)
             } catch (err) {
               console.log(err);
             }
           }
           fetchData()
-    },[])
+    },[personEffect])
 
     
     if(personAndMovies && personAndMovies) {

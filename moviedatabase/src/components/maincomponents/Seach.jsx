@@ -1,27 +1,29 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 
-export default function Search(props) {
-  {console.log(props.viewType)}
-    return(
-        <div >
-          {console.log(props.viewType)}
-        <form action="">
-       
-  
+function Search(props) {
+
+  return (
+    <div >
+      <form onSubmit={props.handleClick}>
         <span className="custom-select">
-  <select onChange={e => props.setViewType(e.currentTarget.value)}>
-    <option value={"movie"}>Movie</option>
-    <option value={"tv"}>Tv Show</option>
-    <option value={"person"}>Person</option>
-  </select>
-</span>
-      
+          <select onChange={e => props.setViewType(e.currentTarget.value)}>
+            <option value={"movie"}>Movie</option>
+            <option value={"tv"}>Tv Show</option>
+            <option value={"person"}>Person</option>
+          </select>
+        </span>
+
         <input type="text" placeholder='Search...' onChange={props.handleChange} value={props.searchInput}
         />
-        <button onClick={props.handleClick} >Search</button>
+        
+          <NavLink exact activeClassName="active" to={`/${props.viewType}`}>Search</NavLink>
       </form>
-        </div>
-    )
+    </div>
+  )
 }
+
+export default withRouter(Search)

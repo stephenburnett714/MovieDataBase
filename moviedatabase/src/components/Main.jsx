@@ -20,6 +20,7 @@ export default function Main(props) {
                     searchInput={props.searchInput}
                     handleClick={props.handleClick}
                     handleChange={props.handleChange}
+                    seacrchedResults={props.seacrchedResults}
                 />
             </Route>
 
@@ -30,6 +31,7 @@ export default function Main(props) {
                     searchInput={props.searchInput}
                     handleClick={props.handleClick}
                     handleChange={props.handleChange}
+                    seacrchedResults={props.seacrchedResults}
                 />
             </Route>
 
@@ -40,6 +42,7 @@ export default function Main(props) {
                     searchInput={props.searchInput}
                     handleClick={props.handleClick}
                     handleChange={props.handleChange}
+                    seacrchedResults={props.seacrchedResults}
                 />
             </Route>
 

@@ -8,6 +8,7 @@ import {getShowAndCredits} from './../../services/apihelper'
 export default function TvShowsDetails(props) {
 
     const [selectedTvShow, setSelectedTvShow] = useState(null)
+    const [tvEffect, setTvEffect] = useState(true)
     const moviePosterSize = "w400"
 
     useEffect(() => {
@@ -15,12 +16,13 @@ export default function TvShowsDetails(props) {
             try {
                 const response = await getShowAndCredits(props.match.match.params.id)
                 setSelectedTvShow(response);
+                setTvEffect(!tvEffect)
             } catch (err) {
                 console.log(err);
             }
         }
         fetchData()
-    }, [])
+    }, [tvEffect])
 
 
 
