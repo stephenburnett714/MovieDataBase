@@ -6,6 +6,7 @@ import moment from 'moment'
 
 
 
+
 export default function PeopleDetails(props) {
 
 const [personAndMovies, setPersonAndMovies] = useState(null)
@@ -18,13 +19,15 @@ const posterSize = "w200";
             try {
               const response = await getPersonAndCredits(props.match.match.params.id)
               setPersonAndMovies(response)
+              console.log(response)
               setPersonEffect(!personEffect)
+
             } catch (err) {
               console.log(err);
             }
           }
           fetchData()
-    },[personEffect])
+    },[props.handleClick])
 
     
     if(personAndMovies && personAndMovies) {

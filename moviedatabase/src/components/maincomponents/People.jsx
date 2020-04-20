@@ -6,11 +6,11 @@ import Search from './../maincomponents/Seach'
 export default function People(props) {
 
     const posterSize = 'w200'
-
-       if (props.seacrchedResults) {
+console.log(props.searchedResults)
+       if (props.searchedResults) {
     return (
         <div className="flexbox">
-            {props.seacrchedResults.map((person, index) => (
+            {props.searchedResults.map((person, index) => (
                 <div  className="flex" key={index}>
                     <Link to = {`/person/details/${person.id}`}>
                     <h5>{person.name}</h5>
@@ -20,7 +20,7 @@ export default function People(props) {
             ))}
         </div>
     )
-    } else if (props.seacrchedResults === undefined || props.seacrchedResults === 0){
+    } else if (props.searchedResults === undefined || props.searchedResults === 0){
             return (
                 <div>
                     <h1>Search A Person</h1>

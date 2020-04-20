@@ -8,10 +8,10 @@ export default function Movies(props) {
 
     const posterSize = 'w200'
 
-       if (props.seacrchedResults) {
+       if (props.searchedResults) {
     return (
         <div className="flexbox">
-            {props.seacrchedResults.map((movie, index) => (
+            {props.searchedResults.map((movie, index) => (
                 <div className="flex" key={index}>
                     <Link to = {`/movie/details/${movie.id}`}>
                     <h5>{movie.title || movie.original_name} {movie.release_date ? moment(movie.release_date).format('(YYYY)') : ""}</h5>
@@ -21,7 +21,7 @@ export default function Movies(props) {
             ))}
         </div>
     )
-    } else if (props.seacrchedResults === undefined || props.seacrchedResults === 0){
+    } else if (props.searchedResults === undefined || props.searchedResults === 0){
             return (
                 <div>
                     <h1>Search A Movie</h1>

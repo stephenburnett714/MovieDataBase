@@ -9,10 +9,10 @@ export default function TvShows(props) {
 
     const posterSize = 'w200'
 
-if (props.seacrchedResults) {
+if (props.searchedResults) {
     return (
         <div className="flexbox">
-            {props.seacrchedResults.map((tv, index) => (
+            {props.searchedResults.map((tv, index) => (
                 <div className="flex" key={index}>
                     <Link to = {`/tv/details/${tv.id}`}>
             <h5>{tv.title || tv.original_name} {tv.first_air_date ? moment(tv.first_air_date).format('(YYYY)') : ""} </h5> 
@@ -22,7 +22,7 @@ if (props.seacrchedResults) {
             ))}
         </div>
     )
-    } else if (props.seacrchedResults === undefined || props.seacrchedResults === 0){
+    } else if (props.searchedResults === undefined || props.searchedResults === 0){
             return (
                 <div>
                     <h1>Search a TV Show</h1>

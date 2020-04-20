@@ -22,7 +22,7 @@ export default function TvShowsDetails(props) {
             }
         }
         fetchData()
-    }, [tvEffect])
+    }, [props.handleClick])
 
 
 
