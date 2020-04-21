@@ -60,7 +60,7 @@ export default function MoviesDetails(props) {
                             </div>
                         </div>
                     </div>
-                    <Table striped bordered hover>
+                    <Table>
                         <thead>
                             <tr>
                                 <th>Actor/Actress</th>

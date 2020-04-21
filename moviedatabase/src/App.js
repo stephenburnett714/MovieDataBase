@@ -27,7 +27,9 @@ export default function App(props) {
     setSearchedResults([])
     let newPage = await getSearchedInfo(viewType, searchInput)
     setSearchedResults(newPage.results)
-    console.log('hey')
+    console.log(newPage)
+    console.log(viewType)
+    console.log(searchedResults)
   }
 
 
@@ -41,7 +43,6 @@ export default function App(props) {
         handleChange={handleChange}
       />
       <Main
-        // Search Functions
         searchInput={searchInput}
         handleClick={handleClick}
         handleChange={handleChange}
