@@ -3,7 +3,6 @@
 }
 
 
-
 .App-header {
   background-color: rgb(95, 92, 92);
   min-height: 15vh;
@@ -17,8 +16,14 @@
 
 }
 
-.App-link {
-  color: #61dafb;
+.search-bar {
+  height: 4vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.seach-bar {
+  margin-top: 1vh
 }
 
 .header-link {
@@ -105,7 +110,17 @@
   margin: 20px;
 }
 
+.resize-button {
+  height: 5vh;
+  font-size: 3vh;
+  background-color: rgb(95, 92, 92);
+  color: orange;
+}
 
+.nav-text {
+  color: orange;
+  text-decoration: none;
+}
 
 
 @media only screen and (max-width: 800px) {

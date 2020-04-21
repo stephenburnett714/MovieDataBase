@@ -10,55 +10,47 @@ export default function App(props) {
 
   const [searchInput, setSearchInput] = useState("")
 
-
-  const [pageType, setPageType] = useState({
-    viewType: "movie",
-    showsOrMovies: []
-  })
-
-  const [person, setPerson] = useState({
-    viewType: "tv",
-    showPerson: []
-  })
+  const [viewType, setViewType] = useState("movie")
+  console.log(searchInput)
+  const [searchedResults, setSearchedResults] = useState([])
 
 
   const handleChange = (e) => {
+    e.preventDefault()
     let value = e.target.value;
     setSearchInput(value)
   }
 
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-
-
-    let newPage = await getSearchedInfo(pageType.viewType, searchInput);
-    setPageType(prev => ({
-      viewType: prev.viewType,
-      showsOrMovies: newPage.results
-    }))
+  const handleClick = async (event) => {
+    event.preventDefault()
+    setSearchedResults([])
+    let newPage = await getSearchedInfo(viewType, searchInput)
+    setSearchedResults(newPage.results)
+    console.log(newPage)
+    console.log(viewType)
+    console.log(searchedResults)
   }
 
 
   return (
     <div className="App">
       <Header
-        setPageType={setPageType}
-        pageType={pageType}
-        setPerson={setPerson}
+        viewType={viewType}
+        setViewType={setViewType}
+        searchInput={searchInput}
+        handleClick={handleClick}
+        handleChange={handleChange}
       />
       <Main
-        // Search Functions
         searchInput={searchInput}
         handleClick={handleClick}
         handleChange={handleChange}
         getPoster={getPoster}
-        pageType={pageType}
-        person={person}
         getTvMoviePerson={getTvMoviePerson}
         getMovieCredits={getMovieCredits}
         getPersonAndCredits={getPersonAndCredits}
-        setPageType={setPageType}
+        searchedResults={searchedResults}
       />
       <Footer />
     </div>

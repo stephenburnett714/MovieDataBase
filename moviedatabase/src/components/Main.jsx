@@ -15,56 +15,55 @@ export default function Main(props) {
             <Route exact path="/movie">
                 <Movies
                     getPoster={props.getPoster}
-                    pageType={props.pageType}
                     getTvMoviePerson={props.getTvMoviePerson}
                     searchInput={props.searchInput}
                     handleClick={props.handleClick}
                     handleChange={props.handleChange}
+                    searchedResults={props.searchedResults}
                 />
             </Route>
 
             <Route exact path="/tv">
                 <TvShows
                     getPoster={props.getPoster}
-                    pageType={props.pageType}
                     searchInput={props.searchInput}
                     handleClick={props.handleClick}
                     handleChange={props.handleChange}
+                    seacrhedResults={props.searchedResults}
                 />
             </Route>
 
             <Route exact path="/person">
                 <People
                     getPoster={props.getPoster}
-                    pageType={props.pageType}
                     searchInput={props.searchInput}
                     handleClick={props.handleClick}
                     handleChange={props.handleChange}
+                    searchedResults={props.searchedResults}
                 />
             </Route>
 
             <Route exact path ="/movie/details/:id" component={match => 
-                        <MoviesDetails 
+                        <MoviesDetails
+                        handleClick={props.handleClick}
                         match={match} 
                         getTvMoviePerson={props.getTvMoviePerson}
-                        pageType={props.pageType}
                         />}>
             </Route>
 
             <Route exact path ="/tv/details/:id" component={match => 
-                        <TvShowsDetails 
+                        <TvShowsDetails
+                        handleClick={props.handleClick}
                         match={match} 
                         getTvMoviePerson={props.getTvMoviePerson}
-                        pageType={props.pageType}
                         />}>
             </Route>
 
             <Route exact path ="/person/details/:id" component={match => 
-                        <PeopleDetails 
+                        <PeopleDetails
+                        handleClick={props.handleClick} 
                         match={match} 
                         getTvMoviePerson={props.getTvMoviePerson}
-                        pageType={props.pageType}
-                        setPageType={props.setPageType}
                         />}>
             </Route>
 
