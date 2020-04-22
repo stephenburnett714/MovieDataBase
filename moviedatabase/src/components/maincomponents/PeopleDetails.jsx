@@ -10,41 +10,38 @@ import moment from 'moment'
 export default function PeopleDetails(props) {
 
 const [personAndMovies, setPersonAndMovies] = useState(null)
-const [personEffect, setPersonEffect] = useState(true)
 const characterSize = "w400"
 const posterSize = "w200";
 
-    useEffect(()=>{
-        const fetchData = async () => {
+    
+        async function fetchData() {
             try {
-              const response = await getPersonAndCredits(props.match.match.params.id)
+              let response = await getPersonAndCredits(props.match.match.params.id)
               setPersonAndMovies(response)
               console.log(response)
-              setPersonEffect(!personEffect)
 
             } catch (err) {
-              console.log(err);
+              console.error(err);
             }
           }
+          useEffect(()=>{
           fetchData()
-    },[props.handleClick])
+    },[])
 
     
     if(personAndMovies && personAndMovies) {
-        const {deathday, name, profile_path, birthday, biography} = personAndMovies
     return (
-        
         <div>
-            <h1>{name}</h1>
+            <h1>{personAndMovies.name}</h1>
             <div className="movie-details">
             <div className="details-picture">
-            {profile_path ? <img className="top-picture" src={`https://image.tmdb.org/t/p/${characterSize}${profile_path}`} alt="" /> : <img className="top-picture" src="/ni4x6.png" alt=""/>}
+            {personAndMovies.profile_path ? <img className="top-picture" src={`https://image.tmdb.org/t/p/${characterSize}${personAndMovies.profile_path}`} alt="" /> : <img className="top-picture" src="/ni4x6.png" alt=""/>}
             </div>
             <div>
-            <h3>Birthdate: {moment(birthday).format('MMMM DD, YYYY')}</h3>
-            {deathday ?  <span>DeathDay: { moment(deathday).format('MMMM DD, YYYY')}</span> : <p></p>}
+            <h3>Birthdate: {moment(personAndMovies.birthday).format('MMMM DD, YYYY')}</h3>
+            {personAndMovies.deathday ?  <span>DeathDay: { moment(personAndMovies.deathday).format('MMMM DD, YYYY')}</span> : <p></p>}
             <h3>Biography:</h3>
-            <p className="biography">{biography}</p>
+            <p className="biography">{personAndMovies.biography}</p>
             </div>
             </div>
 
@@ -76,7 +73,8 @@ const posterSize = "w200";
            </div>
         </div>
     )
-        } else {
+        } 
+        else {
             return (
                 <h1>Loading...</h1>
             )

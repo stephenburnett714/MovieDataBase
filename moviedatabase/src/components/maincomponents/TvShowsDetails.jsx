@@ -16,13 +16,14 @@ export default function TvShowsDetails(props) {
             try {
                 const response = await getShowAndCredits(props.match.match.params.id)
                 setSelectedTvShow(response);
-                setTvEffect(!tvEffect)
+                setTvEffect(100)
+                setTvEffect(0)
             } catch (err) {
                 console.log(err);
             }
         }
         fetchData()
-    }, [props.handleClick])
+    }, [tvEffect])
 
 
 
