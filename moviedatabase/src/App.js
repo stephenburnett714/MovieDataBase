@@ -27,8 +27,6 @@ export default function App(props) {
     setSearchedResults([])
     let newPage = await getSearchedInfo(viewType, searchInput)
     setSearchedResults(newPage.results)
-    console.log(newPage)
-    console.log(viewType)
     console.log(searchedResults)
   }
 

@@ -1,14 +1,13 @@
 import React from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
-import Search from './../maincomponents/Seach'
 
 
 export default function TvShows(props) {
 
     const posterSize = 'w200'
 
-    if (props.searchedResults) {
+    if (props.searchedResults && props.searchedResults) {
         return (
             <div className="flexbox">
                 {props.searchedResults.map((tv, index) => (
@@ -21,7 +20,7 @@ export default function TvShows(props) {
                 ))}
             </div>
         )
-    } else if (props.searchedResults === undefined || props.searchedResults.length == 0) {
+    } else if (props.searchedResults === undefined || props.searchedResults.length === 0) {
         return (
             <div>
                 <h1>No Results Found</h1>
